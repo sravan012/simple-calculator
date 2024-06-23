@@ -71,6 +71,55 @@
             background-color: #218838;
             opacity: 1;
         }
+        
+        /* Responsive Styles */
+        @media (max-width: 1024px) {
+            /* Tablet */
+            .calculator {
+                grid-template-columns: repeat(4, 1fr);
+            }
+            .calculator button, .calculator input {
+                height: 45px;
+                font-size: 16px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            /* Mobile */
+            .calculator {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .calculator button, .calculator input {
+                height: 40px;
+                font-size: 14px;
+            }
+            .clear {
+                grid-column: span 2;
+            }
+            .calculator input {
+                grid-column: span 2;
+            }
+            .equal {
+                grid-column: span 2;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            /* Small Mobile */
+            .calculator {
+                grid-template-columns: 1fr;
+            }
+            .calculator button, .calculator input {
+                height: 35px;
+                font-size: 12px;
+            }
+            .clear, .equal, .operator, .number {
+                grid-column: span 1;
+            }
+            .calculator input {
+                grid-column: span 1;
+            }
+        }
     </style>
 </head>
 <body>
@@ -94,7 +143,7 @@
         <button class="operator" onclick="appendOperator('.')">.</button>
         <button class="number" onclick="appendNumber(0)">0</button>
         <button class="equal" onclick="calculate()">=</button>
-        <button class="operator" onclick="appendOperator('/')">/</button>
+        <button class="operator" onclick="appendOperator('/')">/button>
 
         <button class="clear" onclick="clearResult()">C</button>
     </div>
