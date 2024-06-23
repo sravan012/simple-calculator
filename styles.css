@@ -16,6 +16,7 @@ body {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-gap: 10px;
+    height: 60%; /* Default height for medium and large screens */
 }
 
 .calculator input {
@@ -41,11 +42,11 @@ body {
     opacity: 0.75; /* 75% opacity */
 }
 
-.number, .clear {
+.number, .operator {
     background-color: black;
 }
 
-.number:hover, .clear:hover {
+.number:hover, .operator:hover {
     background-color: #333;
     opacity: 1;
 }
@@ -60,8 +61,8 @@ body {
 }
 
 .clear {
-    grid-column: span 3;
     background-color: #dc3545;
+    grid-column: span 4; /* Span all columns in small and medium screens */
 }
 
 .clear:hover {
@@ -80,41 +81,37 @@ body {
 
 /* Responsive Styles */
 
-@media (max-width: 1024px) {
-    /* Tablet */
+@media (max-width: 992px) {
+    /* Medium (md) screens */
     .calculator {
-        grid-template-columns: repeat(4, 1fr);
+        grid-template-columns: repeat(4, 1fr); /* 4 columns */
+        height: 60%; /* Adjusted height for medium screens */
     }
-    .calculator button, .calculator input {
-        height: 45px;
-        font-size: 16px;
-    }
-}
-
-@media (max-width: 768px) {
-    /* Mobile */
-    .calculator {
-        grid-template-columns: repeat(2, 1fr);
-    }
-    .calculator button, .calculator input {
-        height: 40px;
-        font-size: 14px;
+    .calculator button {
+        height: 60px; /* Increase height for better touch interaction */
+        font-size: 20px;
     }
     .clear {
-        grid-column: span 2;
-    }
-    .calculator input {
-        grid-column: span 2;
-    }
-    .equal {
-        grid-column: span 2;
+        display: none; /* Hide clear button in the grid for medium screens */
     }
 }
 
-@media (max-width: 480px) {
-    /* Small Mobile */
+@media (max-width: 576px) {
+    /* Small (sm) screens */
     .calculator {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(4, 1fr); /* 4 columns */
+        height: 80%; /* Adjusted height for small screens */
     }
-    .calculator button, .calculator input {
-        heig
+    .calculator button {
+        height: 60px; /* Increase height for better touch interaction */
+        font-size: 20px;
+    }
+    .clear {
+        display: block; /* Display clear button outside the grid for small screens */
+        grid-column: span 4; /* Span all columns */
+        height: 60px; /* Set height same as other buttons */
+    }
+    .calculator input {
+        grid-column: span 4; /* Span all columns for input field in small screens */
+    }
+}
