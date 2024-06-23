@@ -1,126 +1,10 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Simple Calculator</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            background-color: #333; /* Light black background */
-        }
-        .calculator {
-            background-color: #444; /* Slightly lighter black for the frame */
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            grid-gap: 10px;
-        }
-        .calculator input {
-            grid-column: span 4;
-            height: 50px;
-            text-align: right;
-            border: none;
-            font-size: 18px;
-            margin-bottom: 10px;
-            border-radius: 5px;
-            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1) inset;
-            background-color: #222;
-            color: white; /* White text color */
-        }
-        .calculator button {
-            height: 50px;
-            font-size: 18px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            color: white;
-            opacity: 0.75; /* 75% opacity */
-        }
-        .number, .clear {
-            background-color: black;
-        }
-        .number:hover, .clear:hover {
-            background-color: #333;
-            opacity: 1;
-        }
-        .operator {
-            background-color: orange;
-        }
-        .operator:hover {
-            background-color: darkorange;
-            opacity: 1;
-        }
-        .clear {
-            grid-column: span 3;
-            background-color: #dc3545;
-        }
-        .clear:hover {
-            background-color: #c82333;
-            opacity: 1;
-        }
-        .equal {
-            background-color: #28a745;
-        }
-        .equal:hover {
-            background-color: #218838;
-            opacity: 1;
-        }
-        
-        /* Responsive Styles */
-        @media (max-width: 1024px) {
-            /* Tablet */
-            .calculator {
-                grid-template-columns: repeat(4, 1fr);
-            }
-            .calculator button, .calculator input {
-                height: 45px;
-                font-size: 16px;
-            }
-        }
-        
-        @media (max-width: 768px) {
-            /* Mobile */
-            .calculator {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            .calculator button, .calculator input {
-                height: 40px;
-                font-size: 14px;
-            }
-            .clear {
-                grid-column: span 2;
-            }
-            .calculator input {
-                grid-column: span 2;
-            }
-            .equal {
-                grid-column: span 2;
-            }
-        }
-        
-        @media (max-width: 480px) {
-            /* Small Mobile */
-            .calculator {
-                grid-template-columns: 1fr;
-            }
-            .calculator button, .calculator input {
-                height: 35px;
-                font-size: 12px;
-            }
-            .clear, .equal, .operator, .number {
-                grid-column: span 1;
-            }
-            .calculator input {
-                grid-column: span 1;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="calculator">
@@ -143,33 +27,11 @@
         <button class="operator" onclick="appendOperator('.')">.</button>
         <button class="number" onclick="appendNumber(0)">0</button>
         <button class="equal" onclick="calculate()">=</button>
-        <button class="operator" onclick="appendOperator('/')">/button>
+        <button class="operator" onclick="appendOperator('/')">/</button>
 
         <button class="clear" onclick="clearResult()">C</button>
     </div>
 
-    <script>
-        let resultField = document.getElementById('result');
-
-        function appendNumber(number) {
-            resultField.value += number;
-        }
-
-        function appendOperator(operator) {
-            resultField.value += operator;
-        }
-
-        function calculate() {
-            try {
-                resultField.value = eval(resultField.value);
-            } catch (error) {
-                resultField.value = 'Error';
-            }
-        }
-
-        function clearResult() {
-            resultField.value = '';
-        }
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
