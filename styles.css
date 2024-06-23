@@ -117,13 +117,4 @@ body {
         grid-template-columns: 1fr;
     }
     .calculator button, .calculator input {
-        height: 35px;
-        font-size: 12px;
-    }
-    .clear, .equal, .operator, .number {
-        grid-column: span 1;
-    }
-    .calculator input {
-        grid-column: span 1;
-    }
-}
+        heig
